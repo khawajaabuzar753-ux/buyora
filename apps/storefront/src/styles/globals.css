@@ -1,0 +1,205 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  transition:
+    background-color 300ms ease-in-out,
+    color 300ms ease-in-out;
+}
+
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  background-color: rgba(248, 248, 246, 0.88);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 40px rgba(15, 16, 20, 0.1);
+  transition:
+    background-color 300ms ease-in-out,
+    border-color 300ms ease-in-out,
+    box-shadow 300ms ease-in-out;
+}
+
+.buyora-navbar {
+  color: #fff;
+  background-color: #050607;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(5, 6, 7, 0.12) 0%,
+      #050607 3%,
+      #050607 97%,
+      rgba(5, 6, 7, 0.12) 100%
+    ),
+    url("/navbarbg.png");
+  background-position: center, center 38%;
+  background-size: 100% 100%, cover;
+  background-repeat: no-repeat;
+  border-color: rgba(229, 184, 50, 0.26);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.buyora-navbar-brand > span > span:last-child {
+  color: #fff;
+}
+
+.buyora-mobile-bottom-nav {
+  border-color: rgba(229, 184, 50, 0.28);
+  background: rgba(5, 6, 7, 0.96);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.buyora-mobile-bottom-nav a,
+.buyora-mobile-bottom-nav > div {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.buyora-mobile-bottom-nav a:hover,
+.buyora-mobile-bottom-nav > div:hover {
+  color: #edbd3e;
+}
+
+.dark .glass-panel {
+  border-color: rgba(212, 175, 55, 0.16);
+  background-color: rgba(10, 15, 20, 0.9);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.32);
+}
+
+.glass-drawer-panel {
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-right: 0;
+  background-color: rgba(255, 255, 255, 0.97);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: -20px 0 60px rgba(15, 23, 42, 0.2);
+}
+
+.dark .glass-drawer-panel {
+  border-color: rgba(212, 175, 55, 0.2);
+  background-color: rgba(10, 15, 20, 0.98);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.48);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    transition: none;
+  }
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply -translate-y-2 text-xsmall-regular;
+  }
+
+  input:focus ~ label {
+    @apply left-0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #212121;
+    -webkit-text-fill-color: #212121;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[1440px] w-full mx-auto px-6;
+  }
+
+  .contrast-btn {
+    @apply px-4 py-2 border border-black rounded-full hover:bg-black hover:text-white transition-colors duration-200 ease-in;
+  }
+
+  .text-xsmall-regular {
+    @apply text-[10px] leading-4 font-normal;
+  }
+
+  .text-small-regular {
+    @apply text-xs leading-5 font-normal;
+  }
+
+  .text-small-semi {
+    @apply text-xs leading-5 font-semibold;
+  }
+
+  .text-base-regular {
+    @apply text-sm leading-6 font-normal;
+  }
+
+  .text-base-semi {
+    @apply text-sm leading-6 font-semibold;
+  }
+
+  .text-large-regular {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-large-semi {
+    @apply text-base leading-6 font-semibold;
+  }
+
+  .text-xl-regular {
+    @apply text-2xl leading-[36px] font-normal;
+  }
+
+  .text-xl-semi {
+    @apply text-2xl leading-[36px] font-semibold;
+  }
+
+  .text-2xl-regular {
+    @apply text-[30px] leading-[48px] font-normal;
+  }
+
+  .text-2xl-semi {
+    @apply text-[30px] leading-[48px] font-semibold;
+  }
+
+  .text-3xl-regular {
+    @apply text-[32px] leading-[44px] font-normal;
+  }
+
+  .text-3xl-semi {
+    @apply text-[32px] leading-[44px] font-semibold;
+  }
+}
